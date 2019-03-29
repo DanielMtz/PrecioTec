@@ -50,7 +50,6 @@
 				6244C87BA6FFD00118224BAD /* Pods-PrecioTec.debug.xcconfig */,
 				69E502CC777FA7A9B6A859A6 /* Pods-PrecioTec.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -376,6 +375,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = H3LP9NJJ7F;
 				INFOPLIST_FILE = PrecioTec/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -394,6 +394,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = H3LP9NJJ7F;
 				INFOPLIST_FILE = PrecioTec/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
