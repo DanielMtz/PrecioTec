@@ -31,6 +31,29 @@ class EditViewController: UIViewController {
         
         let tap = UITapGestureRecognizer(target: self, action: #selector(RemoveKeyboard))
         view.addGestureRecognizer(tap)
+        
+        let datePicker = UIDatePicker()
+        datePicker.datePickerMode = UIDatePicker.Mode.date
+        datePicker.addTarget(self, action: #selector(EditViewController.fechaTiempo(sender:)), for: UIControl.Event.valueChanged)
+        
+        tfTiempo.inputView = datePicker
+        
+    }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+    }
+    
+    @objc func fechaTiempo(sender: UIDatePicker){
+        
+        let formatter = DateFormatter ( )
+        formatter.dateStyle = DateFormatter.Style.medium
+        formatter.timeStyle = DateFormatter.Style.none
+        tfTiempo.text = formatter.string(from: sender.date)
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        view.endEditing(true)
     }
     
     @IBAction func RemoveKeyboard() {
