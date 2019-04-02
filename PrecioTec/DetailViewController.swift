@@ -19,9 +19,10 @@ class DetailViewController: UIViewController, UITableViewDataSource, UITableView
     
     var id : String = ""
     var meta : String = ""
-    var cantidad : Double = 0
+    var cantidad : Double!
     var tiempo = Date()
     var currentRow : Int = 0
+    var mode : String = ""
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,10 +46,15 @@ class DetailViewController: UIViewController, UITableViewDataSource, UITableView
         //Configure the cell
         cell.lbMeta.text = metasArray[indexPath.row].meta
         cell.lbCantidad.text = String(metasArray[indexPath.row].cantidad)
-        cell.lbTiempo.text = formateador.string(from: metasArray[indexPath.row].tiempo)
+        //cell.lbTiempo.text = formateador.string(from: metasArray[indexPath.row].tiempo)
         print("ID:\(metasArray[indexPath.row].id)")
         
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        // Return false if you do not want the specified item to be editable.
+        return true
     }
     
     // Override to support editing the table view.
@@ -78,10 +84,12 @@ class DetailViewController: UIViewController, UITableViewDataSource, UITableView
         let EditVC = segue.destination as! EditViewController
         let indexPath = tvMetas.indexPathForSelectedRow
         if segue.identifier == "editSegue" {
+            mode = "edit"
             EditVC.meta = metasArray[indexPath!.row].meta
             EditVC.cantidad = metasArray[indexPath!.row].cantidad
-            EditVC.tiempo = metasArray[indexPath!.row].tiempo
+            //EditVC.tiempo = metasArray[indexPath!.row].tiempo
         }else {
+            mode = "add"
             EditVC.meta = ""
             EditVC.cantidad = 0
             EditVC.tiempo = Date()
@@ -93,14 +101,43 @@ class DetailViewController: UIViewController, UITableViewDataSource, UITableView
         let metasDB = Database.database().reference().child("Metas")
         metasDB.observe(.childAdded) { (snapshot) in
             let snapshotValue = snapshot.value as! Dictionary<String, Any>
-            let task = Metas(id: snapshotValue["id"] as! String,
+            let metas = Metas(id: snapshotValue["id"] as! String,
                             meta: snapshotValue["meta"] as! String,
-                            cantidad: snapshotValue["cantidad"] as! Double,
-                            tiempo:  snapshotValue["tiempo"] as! Date)
-            self.metasArray.append(task)
+                            cantidad: snapshotValue["cantidad"] as! Double
+                            /*tiempo: snapshotValue["tiempo"] as! Date*/)
+            self.metasArray.append(metas)
             self.tvMetas.reloadData()
         }
         SVProgressHUD.dismiss()
+    }
+    
+    @IBAction func SaveUnwind(unwind : UIStoryboardSegue) {
+        let metasDB = Database.database().reference().child("Metas")
+        if  mode == "add" {
+            id = metasDB.childByAutoId().key!
+            let metasDirectory =
+                ["id": id,
+                 "meta": meta,
+                 "cantidad": cantidad,
+                 /*"tiempo": String(tiempo)*/] as [String : Any]
+            metasDB.child(id).setValue(metasDirectory)
+        } else {
+            id = metasArray[currentRow].id
+            let metasDirectory =
+                ["id": id,
+                 "meta": meta,
+                 "cantidad": cantidad,
+                 /*"tiempo": tiempo*/] as [String : Any]
+            metasDB.child(id).setValue(metasDirectory)
+            metasArray[currentRow].meta = meta
+            metasArray[currentRow].cantidad = cantidad
+            //metasArray[currentRow].tiempo = tiempo
+            
+            tvMetas.reloadData()
+        }
+    }
+    
+    @IBAction func CancelUnwind(unwind : UIStoryboardSegue) {
     }
 }
 
