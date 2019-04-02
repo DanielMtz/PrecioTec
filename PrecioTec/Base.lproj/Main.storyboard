@@ -96,6 +96,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="lbTotal" destination="4Uj-aK-KXm" id="vQf-2I-PBJ"/>
                         <outlet property="tvMetas" destination="SOA-lL-QVq" id="W3n-vs-a8g"/>
                     </connections>
                 </viewController>

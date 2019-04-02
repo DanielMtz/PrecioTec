@@ -15,8 +15,8 @@
 		FB2AC047224AC94300BE4932 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB2AC045224AC94300BE4932 /* Main.storyboard */; };
 		FB2AC049224AC94400BE4932 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FB2AC048224AC94400BE4932 /* Assets.xcassets */; };
 		FB2AC04C224AC94400BE4932 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB2AC04A224AC94400BE4932 /* LaunchScreen.storyboard */; };
+		FB2BEBA2225414C7000CC49B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FB2BEBA1225414C7000CC49B /* GoogleService-Info.plist */; };
 		FB77AD6D224EBC3000DFDE5B /* EditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB77AD6C224EBC3000DFDE5B /* EditViewController.swift */; };
-		FB77AD6F224EBE8500DFDE5B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FB77AD6E224EBE8500DFDE5B /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,8 +32,8 @@
 		FB2AC048224AC94400BE4932 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FB2AC04B224AC94400BE4932 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FB2AC04D224AC94400BE4932 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FB2BEBA1225414C7000CC49B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Users/alumno/Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		FB77AD6C224EBC3000DFDE5B /* EditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditViewController.swift; sourceTree = "<group>"; };
-		FB77AD6E224EBE8500DFDE5B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,7 +95,7 @@
 				FB2AC048224AC94400BE4932 /* Assets.xcassets */,
 				FB2AC04A224AC94400BE4932 /* LaunchScreen.storyboard */,
 				FB2AC04D224AC94400BE4932 /* Info.plist */,
-				FB77AD6E224EBE8500DFDE5B /* GoogleService-Info.plist */,
+				FB2BEBA1225414C7000CC49B /* GoogleService-Info.plist */,
 			);
 			path = PrecioTec;
 			sourceTree = "<group>";
@@ -161,7 +161,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FB2AC04C224AC94400BE4932 /* LaunchScreen.storyboard in Resources */,
-				FB77AD6F224EBE8500DFDE5B /* GoogleService-Info.plist in Resources */,
+				FB2BEBA2225414C7000CC49B /* GoogleService-Info.plist in Resources */,
 				FB2AC049224AC94400BE4932 /* Assets.xcassets in Resources */,
 				FB2AC047224AC94300BE4932 /* Main.storyboard in Resources */,
 			);
@@ -383,7 +383,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = E4HU8ME3W9;
+				DEVELOPMENT_TEAM = H3LP9NJJ7F;
 				INFOPLIST_FILE = PrecioTec/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -402,7 +402,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = E4HU8ME3W9;
+				DEVELOPMENT_TEAM = H3LP9NJJ7F;
 				INFOPLIST_FILE = PrecioTec/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

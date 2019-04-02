@@ -18,6 +18,7 @@ class DetailViewController: UIViewController, UITableViewDataSource, UITableView
     
     
     @IBOutlet weak var tvMetas: UITableView!
+    @IBOutlet weak var lbTotal: UILabel!
     
     var id : String = ""
     var meta : String = ""
@@ -30,7 +31,17 @@ class DetailViewController: UIViewController, UITableViewDataSource, UITableView
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         RetrieveNewGoals()
+        
     }
+    
+//    func calculaTotal() {
+//        print("Dani: \(metasArray[1].cantidad)")
+//        for i in 0...metasArray.count {
+//            var total : Double = 0
+//            total += metasArray[i].cantidad
+//            lbTotal.text! = String(total)
+//        }
+//    }
     
     func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
@@ -100,6 +111,7 @@ class DetailViewController: UIViewController, UITableViewDataSource, UITableView
     
     func RetrieveNewGoals() {
         SVProgressHUD.show()
+        print("dani")
         let metasDB = Database.database().reference().child("Metas")
         metasDB.observe(.childAdded) { (snapshot) in
             let snapshotValue = snapshot.value as! Dictionary<String, Any>
@@ -108,8 +120,12 @@ class DetailViewController: UIViewController, UITableViewDataSource, UITableView
                             cantidad: snapshotValue["cantidad"] as! Double
                             /*tiempo: snapshotValue["tiempo"] as! Date*/)
             self.metasArray.append(metas)
+//            print("metas")
+//            print(metas)
+
             self.tvMetas.reloadData()
         }
+        
         SVProgressHUD.dismiss()
     }
     
