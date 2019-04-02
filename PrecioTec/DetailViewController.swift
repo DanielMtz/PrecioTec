@@ -10,6 +10,8 @@ import UIKit
 import Firebase
 import SVProgressHUD
 
+
+
 class DetailViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
     var metasArray = [Metas]()
