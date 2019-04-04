@@ -14,11 +14,10 @@ import SVProgressHUD
 
 class DetailViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
-    var metasArray = [Metas]()
-    
-    
+    @IBOutlet weak var lbTotal: UILabel!
     @IBOutlet weak var tvMetas: UITableView!
     
+    var metasArray = [Metas]()
     var id : String = ""
     var meta : String = ""
     var cantidad : Double!
@@ -38,17 +37,16 @@ class DetailViewController: UIViewController, UITableViewDataSource, UITableView
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        sumarTotal()
         return metasArray.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "metasCell", for: indexPath) as! TableViewCell
-        let formateador = DateFormatter()
-        formateador.dateStyle = DateFormatter.Style.short
         //Configure the cell
         cell.lbMeta.text = metasArray[indexPath.row].meta
         cell.lbCantidad.text = String(metasArray[indexPath.row].cantidad)
-        //cell.lbTiempo.text = formateador.string(from: metasArray[indexPath.row].tiempo)
+        cell.lbTiempo.text = metasArray[indexPath.row].tiempo
         print("ID:\(metasArray[indexPath.row].id)")
         
         return cell
@@ -85,11 +83,14 @@ class DetailViewController: UIViewController, UITableViewDataSource, UITableView
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let EditVC = segue.destination as! EditViewController
         let indexPath = tvMetas.indexPathForSelectedRow
+        let formateador = DateFormatter()
+        formateador.dateStyle = DateFormatter.Style.medium
+        formateador.timeStyle = DateFormatter.Style.none
         if segue.identifier == "editSegue" {
             mode = "edit"
             EditVC.meta = metasArray[indexPath!.row].meta
             EditVC.cantidad = metasArray[indexPath!.row].cantidad
-            //EditVC.tiempo = metasArray[indexPath!.row].tiempo
+            EditVC.tiempo = formateador.date(from: metasArray[indexPath!.row].tiempo)!
         }else {
             mode = "add"
             EditVC.meta = ""
@@ -105,15 +106,30 @@ class DetailViewController: UIViewController, UITableViewDataSource, UITableView
             let snapshotValue = snapshot.value as! Dictionary<String, Any>
             let metas = Metas(id: snapshotValue["id"] as! String,
                             meta: snapshotValue["meta"] as! String,
-                            cantidad: snapshotValue["cantidad"] as! Double
-                            /*tiempo: snapshotValue["tiempo"] as! Date*/)
+                            cantidad: snapshotValue["cantidad"] as! Double,
+                            tiempo: snapshotValue["tiempo"] as! String)
             self.metasArray.append(metas)
             self.tvMetas.reloadData()
         }
         SVProgressHUD.dismiss()
     }
     
+    func sumarTotal() {
+        var total : Double = 0
+        var i : Int = 0
+        print(metasArray.count)
+        while i < metasArray.count {
+            total += metasArray[i].cantidad
+            i += 1
+        }
+        lbTotal.text = String(total)
+    }
+    
+    
     @IBAction func SaveUnwind(unwind : UIStoryboardSegue) {
+        let formatter = DateFormatter ( )
+        formatter.dateStyle = DateFormatter.Style.medium
+        formatter.timeStyle = DateFormatter.Style.none
         let metasDB = Database.database().reference().child("Metas")
         if  mode == "add" {
             id = metasDB.childByAutoId().key!
@@ -121,7 +137,7 @@ class DetailViewController: UIViewController, UITableViewDataSource, UITableView
                 ["id": id,
                  "meta": meta,
                  "cantidad": cantidad,
-                 /*"tiempo": String(tiempo)*/] as [String : Any]
+                 "tiempo": formatter.string(from: tiempo)] as [String : Any]
             metasDB.child(id).setValue(metasDirectory)
         } else {
             id = metasArray[currentRow].id
@@ -129,11 +145,11 @@ class DetailViewController: UIViewController, UITableViewDataSource, UITableView
                 ["id": id,
                  "meta": meta,
                  "cantidad": cantidad,
-                 /*"tiempo": tiempo*/] as [String : Any]
+                 "tiempo": formatter.string(from: tiempo)] as [String : Any]
             metasDB.child(id).setValue(metasDirectory)
             metasArray[currentRow].meta = meta
             metasArray[currentRow].cantidad = cantidad
-            //metasArray[currentRow].tiempo = tiempo
+            metasArray[currentRow].tiempo = formatter.string(from: tiempo)
             
             tvMetas.reloadData()
         }
