@@ -74,7 +74,7 @@ class DetailViewController: UIViewController, UITableViewDataSource, UITableView
             let metasDB = Database.database().reference().child("Metas")
             metasDB.child(id).setValue(nil)
             metasArray.remove(at: indexPath.row)
-            tableView.deleteRows(at: [indexPath], with: .fade)
+            tvMetas.deleteRows(at: [indexPath], with: .fade)
             
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
