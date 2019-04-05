@@ -19,15 +19,18 @@ class EditViewController: UIViewController {
     var meta : String = ""
     var cantidad : Double!
     var tiempo = Date()
+    let formateador = DateFormatter()
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        
+        formateador.dateStyle = DateFormatter.Style.medium
+        formateador.timeStyle = DateFormatter.Style.none
         tfMeta.text = meta
         tfCantidad.text = String(cantidad)
-        //tfTiempo.text = String(tiempo)
+        tfTiempo.text = formateador.string(from: tiempo)
         
         let tap = UITapGestureRecognizer(target: self, action: #selector(RemoveKeyboard))
         view.addGestureRecognizer(tap)
@@ -60,7 +63,6 @@ class EditViewController: UIViewController {
         view.endEditing(true)
     }
     
-    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -73,7 +75,7 @@ class EditViewController: UIViewController {
             let metasVC = segue.destination as! DetailViewController
             metasVC.meta = tfMeta.text!
             metasVC.cantidad = Double(tfCantidad.text!)
-            //metasVC.tiempo = Date(tfTiempo.text!)
+            metasVC.tiempo = formateador.date(from: tfTiempo.text!)!
         }
     }
 
