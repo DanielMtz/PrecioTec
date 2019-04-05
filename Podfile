@@ -11,6 +11,8 @@ pod 'Firebase/Auth'
 pod 'Firebase/Database'
 pod 'SVProgressHUD'
 pod 'ChameleonFramework'
+pod 'SwiftyJSON', '~> 4.0'
+pod 'Alamofire'
 
 end
 

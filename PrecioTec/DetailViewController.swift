@@ -9,13 +9,15 @@
 import UIKit
 import Firebase
 import SVProgressHUD
-
+import SwiftyJSON
+import Alamofire
 
 
 class DetailViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
     @IBOutlet weak var lbTotal: UILabel!
     @IBOutlet weak var tvMetas: UITableView!
+    @IBOutlet weak var sgPesosADolares: UISegmentedControl!
     
     var metasArray = [Metas]()
     var id : String = ""
@@ -24,6 +26,11 @@ class DetailViewController: UIViewController, UITableViewDataSource, UITableView
     var tiempo = Date()
     var currentRow : Int = 0
     var mode : String = ""
+    
+    let URLFixer = "http://data.fixer.io/api/latest?access_key="
+    let keyFixer = "3781356276a8798f7c577f21c96aaaf8"
+    let convertFixer = "&symbols=MXN,USD"
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -157,5 +164,79 @@ class DetailViewController: UIViewController, UITableViewDataSource, UITableView
     
     @IBAction func CancelUnwind(unwind : UIStoryboardSegue) {
     }
+    
+    @IBAction func cambioPesosDolares(_ sender: Any) {
+        if sgPesosADolares.selectedSegmentIndex == 0 {
+            if let dolares = Double(lbTotal.text!) {
+                //          var dolares : Double = pesos / tipoDeCambio
+                let finalURL = "\(URLFixer)\(keyFixer)\(convertFixer)"
+                print(finalURL)
+                Alamofire.request(finalURL, method: .get)
+                    .responseJSON { response in
+                        //print(finalURL)
+                        if response.result.isSuccess {
+                            print("Success! Get the conversion")
+                            let convertJSON : JSON = JSON(response.result.value!)
+                            print(convertJSON)
+                            let amountJSON = convertJSON["rates"].dictionaryValue
+                            print("hola")
+                            print(amountJSON)
+                            var fromAmount : Double = 0
+                            var toAmount : Double = 0
+                            for(key,value) in amountJSON {
+                                if key == "USD" {
+                                    fromAmount = value.double!
+                                } else if key == "MXN" {
+                                    toAmount = value.double!
+                                }
+                            }
+                            print(dolares,fromAmount, toAmount)
+                            let amountConverted = dolares / fromAmount * toAmount
+                            self.lbTotal.text = String(format: "%.2f", amountConverted)
+                        } else {
+                            print("API not available")
+                        }
+                }
+                //            lbDolares.text = "$ \(dolares) dólares"
+            }
+            
+        }
+        else {
+            if let pesos = Double(lbTotal.text!) {
+                //          var dolares : Double = pesos / tipoDeCambio
+                let finalURL = "\(URLFixer)\(keyFixer)\(convertFixer)"
+                print(finalURL)
+                Alamofire.request(finalURL, method: .get)
+                    .responseJSON { response in
+                        //print(finalURL)
+                        if response.result.isSuccess {
+                            print("Success! Get the conversion")
+                            let convertJSON : JSON = JSON(response.result.value!)
+                            print(convertJSON)
+                            let amountJSON = convertJSON["rates"].dictionaryValue
+                            print("hola")
+                            print(amountJSON)
+                            var fromAmount : Double = 0
+                            var toAmount : Double = 0
+                            for(key,value) in amountJSON {
+                                if key == "MXN" {
+                                    fromAmount = value.double!
+                                } else if key == "USD" {
+                                    toAmount = value.double!
+                                }
+                            }
+                            print(pesos,fromAmount, toAmount)
+                            let amountConverted = pesos / fromAmount * toAmount
+                            self.lbTotal.text = String(format: "%.2f", amountConverted)
+                        } else {
+                            print("API not available")
+                        }
+                }
+                //            lbDolares.text = "$ \(dolares) dólares"
+            }
+        }
+    }
+    
+    
 }
 

@@ -15,8 +15,8 @@
 		FB2AC047224AC94300BE4932 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB2AC045224AC94300BE4932 /* Main.storyboard */; };
 		FB2AC049224AC94400BE4932 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FB2AC048224AC94400BE4932 /* Assets.xcassets */; };
 		FB2AC04C224AC94400BE4932 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB2AC04A224AC94400BE4932 /* LaunchScreen.storyboard */; };
-		FB2BEBA2225414C7000CC49B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FB2BEBA1225414C7000CC49B /* GoogleService-Info.plist */; };
 		FB77AD6D224EBC3000DFDE5B /* EditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB77AD6C224EBC3000DFDE5B /* EditViewController.swift */; };
+		FBD42D1B2257EF81002225B6 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FBD42D1A2257EF81002225B6 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,8 +32,8 @@
 		FB2AC048224AC94400BE4932 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FB2AC04B224AC94400BE4932 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FB2AC04D224AC94400BE4932 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		FB2BEBA1225414C7000CC49B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Users/alumno/Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		FB77AD6C224EBC3000DFDE5B /* EditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditViewController.swift; sourceTree = "<group>"; };
+		FBD42D1A2257EF81002225B6 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Users/alumno/Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,7 +95,7 @@
 				FB2AC048224AC94400BE4932 /* Assets.xcassets */,
 				FB2AC04A224AC94400BE4932 /* LaunchScreen.storyboard */,
 				FB2AC04D224AC94400BE4932 /* Info.plist */,
-				FB2BEBA1225414C7000CC49B /* GoogleService-Info.plist */,
+				FBD42D1A2257EF81002225B6 /* GoogleService-Info.plist */,
 			);
 			path = PrecioTec;
 			sourceTree = "<group>";
@@ -161,7 +161,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FB2AC04C224AC94400BE4932 /* LaunchScreen.storyboard in Resources */,
-				FB2BEBA2225414C7000CC49B /* GoogleService-Info.plist in Resources */,
+				FBD42D1B2257EF81002225B6 /* GoogleService-Info.plist in Resources */,
 				FB2AC049224AC94400BE4932 /* Assets.xcassets in Resources */,
 				FB2AC047224AC94300BE4932 /* Main.storyboard in Resources */,
 			);
@@ -201,10 +201,12 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-PrecioTec/Pods-PrecioTec-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/ChameleonFramework/ChameleonFramework.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
 				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
@@ -212,10 +214,12 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ChameleonFramework.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
