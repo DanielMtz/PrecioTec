@@ -213,13 +213,6 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J9R-MF-39W">
-                                <rect key="frame" x="240" y="462" width="45" height="30"/>
-                                <state key="normal" title="Delete"/>
-                                <connections>
-                                    <segue destination="pS9-ZG-nds" kind="unwind" unwindAction="DeleteUnwindWithUnwind:" id="Tx9-L5-2Jc"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -230,13 +223,11 @@
                             <constraint firstItem="hZd-WN-jvd" firstAttribute="bottom" secondItem="0nT-xx-VK8" secondAttribute="bottom" constant="275" id="I4J-K1-pX0"/>
                             <constraint firstItem="UNX-FO-aFA" firstAttribute="top" secondItem="6AK-RV-RFG" secondAttribute="bottom" constant="203" id="Q9Q-3S-dLJ"/>
                             <constraint firstItem="hZd-WN-jvd" firstAttribute="trailing" secondItem="IOv-Cz-Aol" secondAttribute="trailing" constant="94" id="Qa5-Si-Wbr"/>
-                            <constraint firstItem="J9R-MF-39W" firstAttribute="leading" secondItem="hZd-WN-jvd" secondAttribute="leading" constant="240" id="Vj7-SW-Jdg"/>
                             <constraint firstItem="f5Y-h1-axm" firstAttribute="top" secondItem="IlW-Zj-UYm" secondAttribute="bottom" constant="24" id="WaI-eS-KUs"/>
                             <constraint firstItem="f5Y-h1-axm" firstAttribute="leading" secondItem="hZd-WN-jvd" secondAttribute="leading" constant="69" id="YJW-4v-vhO"/>
                             <constraint firstItem="6AK-RV-RFG" firstAttribute="leading" secondItem="hZd-WN-jvd" secondAttribute="leading" id="bre-Ln-c9c"/>
                             <constraint firstItem="S1Q-6i-7R8" firstAttribute="top" secondItem="6AK-RV-RFG" secondAttribute="bottom" constant="200" id="dh5-xz-agN"/>
                             <constraint firstItem="hZd-WN-jvd" firstAttribute="trailing" secondItem="S1Q-6i-7R8" secondAttribute="trailing" constant="94" id="lIW-1U-JaF"/>
-                            <constraint firstItem="J9R-MF-39W" firstAttribute="top" secondItem="0nT-xx-VK8" secondAttribute="bottom" constant="70" id="p8s-Fa-sIe"/>
                             <constraint firstItem="0nT-xx-VK8" firstAttribute="top" secondItem="IOv-Cz-Aol" secondAttribute="bottom" constant="14" id="qbO-79-wsD"/>
                             <constraint firstItem="S1Q-6i-7R8" firstAttribute="leading" secondItem="UNX-FO-aFA" secondAttribute="trailing" constant="43" id="qyh-oR-Vyu"/>
                             <constraint firstItem="6AK-RV-RFG" firstAttribute="top" secondItem="hZd-WN-jvd" secondAttribute="top" id="rYx-am-eSR"/>
@@ -244,12 +235,10 @@
                             <constraint firstItem="0nT-xx-VK8" firstAttribute="leading" secondItem="f5Y-h1-axm" secondAttribute="trailing" constant="24" id="snI-ol-XpC"/>
                             <constraint firstItem="UNX-FO-aFA" firstAttribute="leading" secondItem="hZd-WN-jvd" secondAttribute="leading" constant="69" id="tNI-pq-Hlw"/>
                             <constraint firstItem="hZd-WN-jvd" firstAttribute="trailing" secondItem="0nT-xx-VK8" secondAttribute="trailing" constant="94" id="uc4-pp-v24"/>
-                            <constraint firstItem="hZd-WN-jvd" firstAttribute="trailing" secondItem="J9R-MF-39W" secondAttribute="trailing" constant="90" id="yfZ-sf-hPL"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="hZd-WN-jvd"/>
                     </view>
                     <connections>
-                        <outlet property="btDelete" destination="J9R-MF-39W" id="4gH-cT-PkI"/>
                         <outlet property="btSave" destination="x1S-P2-9Rv" id="Zb4-h3-TQW"/>
                         <outlet property="tfCantidad" destination="IOv-Cz-Aol" id="1ay-0b-oLX"/>
                         <outlet property="tfMeta" destination="S1Q-6i-7R8" id="oXV-kN-a9d"/>
