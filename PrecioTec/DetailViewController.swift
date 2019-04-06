@@ -36,6 +36,12 @@ class DetailViewController: UIViewController, UITableViewDataSource, UITableView
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         RetrieveNewGoals()
+        
+        let Gif = UIImage.gifImageWithName("giphy")
+        let imageView = UIImageView(image: Gif)
+        imageView.frame = CGRect(x: 20.0, y: 50.0, width: self.view.frame.size.width - 40, height: 150.0)
+        view.addSubview(imageView)
+        
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
