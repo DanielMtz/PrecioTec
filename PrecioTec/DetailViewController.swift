@@ -36,12 +36,21 @@ class DetailViewController: UIViewController, UITableViewDataSource, UITableView
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         RetrieveNewGoals()
+        assignbackground()
+        // Do any additional setup after loading the view.
+    }
+    
+    func assignbackground(){
+        let background = UIImage(named: "background")
         
-        let Gif = UIImage.gifImageWithName("giphy")
-        let imageView = UIImageView(image: Gif)
-        imageView.frame = CGRect(x: 20.0, y: 50.0, width: self.view.frame.size.width - 40, height: 150.0)
+        var imageView : UIImageView!
+        imageView = UIImageView(frame: view.bounds)
+        imageView.contentMode =  UIView.ContentMode.scaleAspectFill
+        imageView.clipsToBounds = true
+        imageView.image = background
+        imageView.center = view.center
         view.addSubview(imageView)
-        
+        self.view.sendSubviewToBack(imageView)
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
