@@ -80,7 +80,7 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="uhN-3e-cfH"/>
                                 </connections>
                             </tableView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Uj-aK-KXm">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Uj-aK-KXm" customClass="CountingLabel" customModule="PrecioTec" customModuleProvider="target">
                                 <rect key="frame" x="99" y="94" width="256" height="48"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="40"/>
                                 <nil key="textColor"/>
@@ -133,7 +133,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="lbTotal" destination="4Uj-aK-KXm" id="LtX-Af-PVm"/>
+                        <outlet property="lbTotal" destination="4Uj-aK-KXm" id="paH-BK-aNX"/>
                         <outlet property="sgPesosADolares" destination="gOd-4d-TPf" id="T1k-Zw-PvH"/>
                         <outlet property="tvMetas" destination="SOA-lL-QVq" id="W3n-vs-a8g"/>
                     </connections>

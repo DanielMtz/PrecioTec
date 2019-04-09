@@ -15,7 +15,8 @@ import Alamofire
 
 class DetailViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
-    @IBOutlet weak var lbTotal: UILabel!
+    
+    @IBOutlet weak var lbTotal: CountingLabel!
     @IBOutlet weak var tvMetas: UITableView!
     @IBOutlet weak var sgPesosADolares: UISegmentedControl!
     
@@ -39,6 +40,12 @@ class DetailViewController: UIViewController, UITableViewDataSource, UITableView
         assignbackground()
         // Do any additional setup after loading the view.
     }
+    
+//    override func viewDidAppear(_ animated: Bool) {
+//        super.viewDidAppear(animated)
+//
+//        lbTotal.count(fromValue: 0, to: 9999, withDuration: 5, andAnimationType: .EaseOut, andCounterType: .Int)
+//    }
     
     func assignbackground(){
         let background = UIImage(named: "background")
@@ -207,7 +214,8 @@ class DetailViewController: UIViewController, UITableViewDataSource, UITableView
                             }
                             print(dolares,fromAmount, toAmount)
                             let amountConverted = dolares / fromAmount * toAmount
-                            self.lbTotal.text = String(format: "%.2f", amountConverted)
+                            //self.lbTotal.text = String(format: "%.2f", amountConverted)
+                            self.lbTotal.count(fromValue: Float(dolares), to: Float(amountConverted), withDuration: 1, andAnimationType: .EaseOut, andCounterType: .Float)
                         } else {
                             print("API not available")
                         }
@@ -242,7 +250,8 @@ class DetailViewController: UIViewController, UITableViewDataSource, UITableView
                             }
                             print(pesos,fromAmount, toAmount)
                             let amountConverted = pesos / fromAmount * toAmount
-                            self.lbTotal.text = String(format: "%.2f", amountConverted)
+                            //self.lbTotal.text = String(format: "%.2f", amountConverted)
+                            self.lbTotal.count(fromValue: Float(pesos), to: Float(amountConverted), withDuration: 1, andAnimationType: .EaseOut, andCounterType: .Float)
                         } else {
                             print("API not available")
                         }

@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		57DFF5342251C1AE00DFC677 /* Metas.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57DFF5332251C1AE00DFC677 /* Metas.swift */; };
 		57DFF5362251C32700DFC677 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57DFF5352251C32700DFC677 /* TableViewCell.swift */; };
+		830B099E225C327300BE029D /* CountingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 830B099D225C327300BE029D /* CountingLabel.swift */; };
 		831B96B9225808A3008DEFB8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 831B96B8225808A3008DEFB8 /* GoogleService-Info.plist */; };
 		F45074155F2354308B14D2C0 /* Pods_PrecioTec.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86B56951A5D21C02C0EE8F1A /* Pods_PrecioTec.framework */; };
 		FB2AC042224AC94300BE4932 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2AC041224AC94300BE4932 /* AppDelegate.swift */; };
@@ -24,6 +25,7 @@
 		57DFF5352251C32700DFC677 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		6244C87BA6FFD00118224BAD /* Pods-PrecioTec.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PrecioTec.debug.xcconfig"; path = "Target Support Files/Pods-PrecioTec/Pods-PrecioTec.debug.xcconfig"; sourceTree = "<group>"; };
 		69E502CC777FA7A9B6A859A6 /* Pods-PrecioTec.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PrecioTec.release.xcconfig"; path = "Target Support Files/Pods-PrecioTec/Pods-PrecioTec.release.xcconfig"; sourceTree = "<group>"; };
+		830B099D225C327300BE029D /* CountingLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountingLabel.swift; sourceTree = "<group>"; };
 		831B96B8225808A3008DEFB8 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		86B56951A5D21C02C0EE8F1A /* Pods_PrecioTec.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PrecioTec.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB2AC03E224AC94300BE4932 /* PrecioTec.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PrecioTec.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -88,6 +90,7 @@
 			children = (
 				FB2AC041224AC94300BE4932 /* AppDelegate.swift */,
 				FB2AC043224AC94300BE4932 /* DetailViewController.swift */,
+				830B099D225C327300BE029D /* CountingLabel.swift */,
 				FB2AC045224AC94300BE4932 /* Main.storyboard */,
 				57DFF5332251C1AE00DFC677 /* Metas.swift */,
 				57DFF5352251C32700DFC677 /* TableViewCell.swift */,
@@ -236,6 +239,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				57DFF5362251C32700DFC677 /* TableViewCell.swift in Sources */,
+				830B099E225C327300BE029D /* CountingLabel.swift in Sources */,
 				57DFF5342251C1AE00DFC677 /* Metas.swift in Sources */,
 				FB2AC044224AC94300BE4932 /* DetailViewController.swift in Sources */,
 				FB2AC042224AC94300BE4932 /* AppDelegate.swift in Sources */,
