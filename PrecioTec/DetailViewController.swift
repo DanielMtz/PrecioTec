@@ -27,6 +27,7 @@ class DetailViewController: UIViewController, UITableViewDataSource, UITableView
     var tiempo = Date()
     var currentRow : Int = 0
     var mode : String = ""
+    var fecha : String = ""
     
     let URLFixer = "http://data.fixer.io/api/latest?access_key="
     let keyFixer = "3781356276a8798f7c577f21c96aaaf8"
@@ -75,7 +76,7 @@ class DetailViewController: UIViewController, UITableViewDataSource, UITableView
         //Configure the cell
         cell.lbMeta.text = metasArray[indexPath.row].meta
         cell.lbCantidad.text = String(metasArray[indexPath.row].cantidad)
-        cell.lbTiempo.text = metasArray[indexPath.row].tiempo
+        cell.lbTiempo.text = metasArray[indexPath.row].fecha
         print("ID:\(metasArray[indexPath.row].id)")
         
         return cell
@@ -136,7 +137,8 @@ class DetailViewController: UIViewController, UITableViewDataSource, UITableView
             let metas = Metas(id: snapshotValue["id"] as! String,
                             meta: snapshotValue["meta"] as! String,
                             cantidad: snapshotValue["cantidad"] as! Double,
-                            tiempo: snapshotValue["tiempo"] as! String)
+                            tiempo: snapshotValue["tiempo"] as! String,
+                            fecha: snapshotValue["fecha"] as! String)
             self.metasArray.append(metas)
             self.tvMetas.reloadData()
         }
@@ -166,6 +168,7 @@ class DetailViewController: UIViewController, UITableViewDataSource, UITableView
                 ["id": id,
                  "meta": meta,
                  "cantidad": cantidad,
+                 "fecha":fecha,
                  "tiempo": formatter.string(from: tiempo)] as [String : Any]
             metasDB.child(id).setValue(metasDirectory)
         } else {
@@ -174,11 +177,13 @@ class DetailViewController: UIViewController, UITableViewDataSource, UITableView
                 ["id": id,
                  "meta": meta,
                  "cantidad": cantidad,
+                 "fecha":fecha,
                  "tiempo": formatter.string(from: tiempo)] as [String : Any]
             metasDB.child(id).setValue(metasDirectory)
             metasArray[currentRow].meta = meta
             metasArray[currentRow].cantidad = cantidad
             metasArray[currentRow].tiempo = formatter.string(from: tiempo)
+            metasArray[currentRow].fecha = fecha
             
             tvMetas.reloadData()
         }

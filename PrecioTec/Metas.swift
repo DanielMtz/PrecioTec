@@ -14,13 +14,15 @@ class Metas: NSObject {
     var meta: String = ""
     var cantidad: Double = 0
     var tiempo : String = ""
+    var fecha : String  = ""
     
     
-    init(id: String, meta: String, cantidad: Double , tiempo:String){
+    init(id: String, meta: String, cantidad: Double , tiempo:String, fecha:String){
         self.id = id
         self.meta = meta
         self.cantidad = cantidad
         self.tiempo = tiempo
+        self.fecha = fecha
     }
     
 }
