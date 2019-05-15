@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="a2G-kD-5f7">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="a2G-kD-5f7">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -86,8 +86,8 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cantidad a ahorrar:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CmW-6s-d44">
-                                <rect key="frame" x="200" y="77" width="159" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cantidad a ahorrar mensual:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CmW-6s-d44">
+                                <rect key="frame" x="100" y="77" width="259" height="21"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -109,6 +109,7 @@
                         <color key="tintColor" red="0.1625891005" green="0.71359454310000003" blue="0.050264291279999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="SOA-lL-QVq" secondAttribute="trailing" id="1UI-dd-yuw"/>
+                            <constraint firstItem="CmW-6s-d44" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="100" id="3Xi-ag-8WI"/>
                             <constraint firstItem="CmW-6s-d44" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="13" id="3bU-fL-5NC"/>
                             <constraint firstItem="SOA-lL-QVq" firstAttribute="top" secondItem="gOd-4d-TPf" secondAttribute="bottom" constant="40" id="3iL-NT-CfF"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="SOA-lL-QVq" secondAttribute="bottom" id="Oqp-ZH-67O"/>
@@ -120,17 +121,23 @@
                             <constraint firstItem="gOd-4d-TPf" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="54" id="iGs-A3-hjC"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="CmW-6s-d44" secondAttribute="trailing" constant="16" id="jP0-NM-fSu"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="gOd-4d-TPf" secondAttribute="trailing" constant="229" id="y4n-Up-REp"/>
-                            <constraint firstItem="CmW-6s-d44" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="200" id="zIU-HK-tvW"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" title="Ahorra Tec" id="Y9Z-J1-AmU">
-                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="add" id="ytt-Fz-Pux">
-                            <color key="tintColor" red="0.1625891005" green="0.71359454310000003" blue="0.050264291279999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            <connections>
-                                <segue destination="luX-CM-4ce" kind="presentation" identifier="addSegue" id="2h3-Xn-pXI"/>
-                            </connections>
-                        </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem style="plain" systemItem="add" id="ytt-Fz-Pux">
+                                <color key="tintColor" red="0.1625891005" green="0.71359454310000003" blue="0.050264291279999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <connections>
+                                    <segue destination="luX-CM-4ce" kind="presentation" identifier="addSegue" id="2h3-Xn-pXI"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem systemItem="compose" id="ELZ-uQ-tdg">
+                                <connections>
+                                    <segue destination="KpS-Pb-LDm" kind="presentation" identifier="infla" id="IQn-PD-uP2"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
                     </navigationItem>
                     <connections>
                         <outlet property="lbTotal" destination="4Uj-aK-KXm" id="paH-BK-aNX"/>
@@ -268,6 +275,85 @@
                 <exit id="pS9-ZG-nds" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1660" y="487"/>
+        </scene>
+        <!--Inflacion-->
+        <scene sceneID="b7f-5H-4MD">
+            <objects>
+                <viewController title="Inflacion" id="KpS-Pb-LDm" customClass="InflacionViewController" customModule="PrecioTec" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Ugd-jM-OIs">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="money4" translatesAutoresizingMaskIntoConstraints="NO" id="zD3-gW-e61">
+                                <rect key="frame" x="87.5" y="103" width="200" height="200"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="200" id="HNa-yt-fhn"/>
+                                    <constraint firstAttribute="width" constant="200" id="Qo9-lc-ZSX"/>
+                                    <constraint firstAttribute="height" constant="200" id="Szu-FG-AIL"/>
+                                </constraints>
+                            </imageView>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ecg-Jl-bhN">
+                                <rect key="frame" x="150" y="428" width="70" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="70" id="3mS-qY-g2P"/>
+                                    <constraint firstAttribute="height" constant="30" id="ywl-81-ur7"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Inflacion" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J45-xh-iid">
+                                <rect key="frame" x="55" y="435" width="68" height="19"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iR1-Nu-tMV">
+                                <rect key="frame" x="0.0" y="20" width="375" height="45"/>
+                                <items>
+                                    <navigationItem title="Modificar meta" id="63t-GH-J6g">
+                                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="u74-xk-dRI">
+                                            <color key="tintColor" red="0.1625891005" green="0.71359454310000003" blue="0.050264291279999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <connections>
+                                                <segue destination="T5y-zZ-BoJ" kind="unwind" unwindAction="CancelUnwindWithUnwind:" id="b0l-E9-R1z"/>
+                                            </connections>
+                                        </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="save" id="whf-Ak-qT7">
+                                            <color key="tintColor" red="0.1625891005" green="0.71359454310000003" blue="0.050264291279999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <connections>
+                                                <segue destination="T5y-zZ-BoJ" kind="unwind" unwindAction="inflaSaveUnwindWithUnwind:" id="MKB-SO-pvD"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="aFq-hu-jRS" firstAttribute="trailing" secondItem="Ecg-Jl-bhN" secondAttribute="trailing" constant="155" id="Dmx-g5-adq"/>
+                            <constraint firstItem="zD3-gW-e61" firstAttribute="centerX" secondItem="Ugd-jM-OIs" secondAttribute="centerX" id="Eb7-GN-0aC"/>
+                            <constraint firstItem="Ecg-Jl-bhN" firstAttribute="leading" secondItem="J45-xh-iid" secondAttribute="trailing" constant="27" id="UII-05-fNL"/>
+                            <constraint firstItem="iR1-Nu-tMV" firstAttribute="trailing" secondItem="aFq-hu-jRS" secondAttribute="trailing" id="duZ-fF-Q9x"/>
+                            <constraint firstItem="J45-xh-iid" firstAttribute="leading" secondItem="aFq-hu-jRS" secondAttribute="leading" constant="55" id="ejW-fb-6yh"/>
+                            <constraint firstItem="J45-xh-iid" firstAttribute="top" secondItem="zD3-gW-e61" secondAttribute="bottom" constant="132" id="fJa-Lj-yO2"/>
+                            <constraint firstItem="iR1-Nu-tMV" firstAttribute="leading" secondItem="aFq-hu-jRS" secondAttribute="leading" id="fyu-rr-Oco"/>
+                            <constraint firstItem="zD3-gW-e61" firstAttribute="top" secondItem="iR1-Nu-tMV" secondAttribute="bottom" constant="38" id="gNt-6e-XSo"/>
+                            <constraint firstItem="aFq-hu-jRS" firstAttribute="bottom" secondItem="J45-xh-iid" secondAttribute="bottom" constant="213" id="ibV-FX-BKN"/>
+                            <constraint firstItem="iR1-Nu-tMV" firstAttribute="top" secondItem="aFq-hu-jRS" secondAttribute="top" id="idD-jf-89r"/>
+                            <constraint firstItem="aFq-hu-jRS" firstAttribute="bottom" secondItem="Ecg-Jl-bhN" secondAttribute="bottom" constant="209" id="p3G-hR-0qE"/>
+                            <constraint firstItem="Ecg-Jl-bhN" firstAttribute="top" secondItem="zD3-gW-e61" secondAttribute="bottom" constant="125" id="qSU-vj-p2l"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="aFq-hu-jRS"/>
+                    </view>
+                    <connections>
+                        <outlet property="btSave" destination="whf-Ak-qT7" id="lNs-iz-dXw"/>
+                        <outlet property="tfInflacion" destination="Ecg-Jl-bhN" id="o3H-5y-qv2"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JM6-Jd-1Uv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="T5y-zZ-BoJ" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="1660" y="-211"/>
         </scene>
     </scenes>
     <resources>

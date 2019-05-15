@@ -11,6 +11,7 @@
 		57DFF5362251C32700DFC677 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57DFF5352251C32700DFC677 /* TableViewCell.swift */; };
 		830B099E225C327300BE029D /* CountingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 830B099D225C327300BE029D /* CountingLabel.swift */; };
 		831B96B9225808A3008DEFB8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 831B96B8225808A3008DEFB8 /* GoogleService-Info.plist */; };
+		8336C24D228C823600FCF36F /* InflacionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8336C24C228C823600FCF36F /* InflacionViewController.swift */; };
 		F45074155F2354308B14D2C0 /* Pods_PrecioTec.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86B56951A5D21C02C0EE8F1A /* Pods_PrecioTec.framework */; };
 		FB2AC042224AC94300BE4932 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2AC041224AC94300BE4932 /* AppDelegate.swift */; };
 		FB2AC044224AC94300BE4932 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2AC043224AC94300BE4932 /* DetailViewController.swift */; };
@@ -27,6 +28,7 @@
 		69E502CC777FA7A9B6A859A6 /* Pods-PrecioTec.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PrecioTec.release.xcconfig"; path = "Target Support Files/Pods-PrecioTec/Pods-PrecioTec.release.xcconfig"; sourceTree = "<group>"; };
 		830B099D225C327300BE029D /* CountingLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountingLabel.swift; sourceTree = "<group>"; };
 		831B96B8225808A3008DEFB8 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		8336C24C228C823600FCF36F /* InflacionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = InflacionViewController.swift; path = "/Users/hectorescobar/Downloads/PrecioTec 2/PrecioTec/InflacionViewController.swift"; sourceTree = "<absolute>"; };
 		86B56951A5D21C02C0EE8F1A /* Pods_PrecioTec.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PrecioTec.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB2AC03E224AC94300BE4932 /* PrecioTec.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PrecioTec.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB2AC041224AC94300BE4932 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -88,6 +90,7 @@
 		FB2AC040224AC94300BE4932 /* PrecioTec */ = {
 			isa = PBXGroup;
 			children = (
+				8336C24C228C823600FCF36F /* InflacionViewController.swift */,
 				FB2AC041224AC94300BE4932 /* AppDelegate.swift */,
 				FB2AC043224AC94300BE4932 /* DetailViewController.swift */,
 				830B099D225C327300BE029D /* CountingLabel.swift */,
@@ -238,6 +241,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8336C24D228C823600FCF36F /* InflacionViewController.swift in Sources */,
 				57DFF5362251C32700DFC677 /* TableViewCell.swift in Sources */,
 				830B099E225C327300BE029D /* CountingLabel.swift in Sources */,
 				57DFF5342251C1AE00DFC677 /* Metas.swift in Sources */,
@@ -391,7 +395,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 9F958X22ZR;
+				DEVELOPMENT_TEAM = HPAJ3SPF6H;
 				INFOPLIST_FILE = PrecioTec/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -410,7 +414,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 9F958X22ZR;
+				DEVELOPMENT_TEAM = HPAJ3SPF6H;
 				INFOPLIST_FILE = PrecioTec/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

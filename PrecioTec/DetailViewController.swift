@@ -27,7 +27,10 @@ class DetailViewController: UIViewController, UITableViewDataSource, UITableView
     var tiempo = Date()
     var currentRow : Int = 0
     var mode : String = ""
+    var inflacion : Double = 0.0
     var fecha : String = ""
+    var tasaDeInflacion : Double = 0.0
+    var defaults = UserDefaults.standard
     
     let URLFixer = "http://data.fixer.io/api/latest?access_key="
     let keyFixer = "3781356276a8798f7c577f21c96aaaf8"
@@ -111,21 +114,31 @@ class DetailViewController: UIViewController, UITableViewDataSource, UITableView
     
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let EditVC = segue.destination as! EditViewController
         let indexPath = tvMetas.indexPathForSelectedRow
         let formateador = DateFormatter()
         formateador.dateStyle = DateFormatter.Style.medium
         formateador.timeStyle = DateFormatter.Style.none
-        if segue.identifier == "editSegue" {
-            mode = "edit"
-            EditVC.meta = metasArray[indexPath!.row].meta
-            EditVC.cantidad = metasArray[indexPath!.row].cantidad
-            EditVC.tiempo = formateador.date(from: metasArray[indexPath!.row].tiempo)!
-        }else {
-            mode = "add"
-            EditVC.meta = ""
-            EditVC.cantidad = 0
-            EditVC.tiempo = Date()
+        
+        
+        if segue.identifier == "infla" {
+            let inflaVC = segue.destination as! InflacionViewController
+            inflaVC.inflacion = inflacion
+        }
+        else {
+            let EditVC = segue.destination as! EditViewController
+            if segue.identifier == "editSegue"{
+                self.mode = "edit"
+                
+                EditVC.meta = metasArray[indexPath!.row].meta
+                EditVC.cantidad = metasArray[indexPath!.row].cantidad
+                EditVC.tiempo = formateador.date(from: metasArray[indexPath!.row].tiempo)!
+            }
+            else {
+                mode = "add"
+                EditVC.meta = ""
+                EditVC.cantidad = 0
+                EditVC.tiempo = Date()
+            }
         }
     }
     
@@ -146,17 +159,31 @@ class DetailViewController: UIViewController, UITableViewDataSource, UITableView
     }
     
     func sumarTotal() {
+        tasaDeInflacion = defaults.double(forKey: "inflacion")
         var total : Double = 0
         var i : Int = 0
+        var cantidadMeses = 0
         print(metasArray.count)
-        while i < metasArray.count {
-            total += metasArray[i].cantidad
+            while i < metasArray.count {
+                var partes = metasArray[i].fecha.components(separatedBy: " ")
+                cantidadMeses = Int(partes[0])!
+                if partes[1] == "years" || partes[1] == "year" {
+                    cantidadMeses = cantidadMeses*12
+                } else if partes[1] == "week" || partes[1] == "weeks" || partes[1] == "day" || partes[1] == "days" || partes[1] == "hours" || partes[1] == "hour" {
+                    cantidadMeses = 1
+                }
+
+                total += metasArray[i].cantidad/Double(cantidadMeses)
             i += 1
         }
-        lbTotal.text = String(total)
+            lbTotal.text = String(format: "%.02f", total*(1+tasaDeInflacion/100))
     }
     
-    
+    @IBAction func inflaSaveUnwind(unwind : UIStoryboardSegue) {
+        tasaDeInflacion = inflacion
+        sumarTotal()
+    }
+        
     @IBAction func SaveUnwind(unwind : UIStoryboardSegue) {
         let formatter = DateFormatter ( )
         formatter.dateStyle = DateFormatter.Style.medium

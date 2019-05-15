@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:/Users/hectorescobar/Downloads/PrecioTec 2/PrecioTec/InflacionViewController.swift">
+   </FileRef>
+   <FileRef
       location = "group:PrecioTec.xcodeproj">
    </FileRef>
    <FileRef
